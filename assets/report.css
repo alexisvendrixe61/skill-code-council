@@ -1,0 +1,62 @@
+:root {
+    --bg: #ffffff; --fg: #1f2328; --muted: #656d76; --line: #d8dee4; --soft: #f6f8fa;
+    --accent: #3b5bdb;
+    --p0: #c92a2a; --p0bg: #fff0f0; --p1: #b35c00; --p1bg: #fff6e6; --p2: #2b6cb0; --p2bg: #eef5ff;
+    --crit: #c92a2a; --mixed: #b35c00; --pos: #2f9e44;
+    --breaker: #e8590c; --architect: #3b5bdb; --simplifier: #2f9e44; --newcomer: #ae3ec9; --operator: #1098ad;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #8d96a0; --line: #30363d; --soft: #161b22;
+      --p0bg: #3a1214; --p1bg: #3a2608; --p2bg: #0f2540;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 32px 16px 64px; }
+  header { border-bottom: 1px solid var(--line); padding-bottom: 20px; margin-bottom: 28px; }
+  .eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: 26px; margin: 6px 0 10px; line-height: 1.3; }
+  h2 { font-size: 18px; margin: 36px 0 12px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-size: 12px; padding: 2px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); }
+  .verdict { background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--accent);
+             border-radius: 8px; padding: 18px 20px; }
+  .first { margin-top: 14px; padding: 12px 16px; border-radius: 8px; border: 1px dashed var(--accent); }
+  .first strong { color: var(--accent); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+  .adv { border: 1px solid var(--line); border-top: 4px solid var(--c); border-radius: 8px; padding: 12px; }
+  .adv .name { font-weight: 600; }
+  .adv .stance { display: inline-block; font-size: 11px; font-weight: 600; text-transform: uppercase;
+                 letter-spacing: .05em; margin: 4px 0 6px; }
+  .st-crit { color: var(--crit); } .st-mixed { color: var(--mixed); } .st-pos { color: var(--pos); }
+  .adv .concern { font-size: 13px; color: var(--muted); }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; white-space: nowrap; }
+  tr:last-child td { border-bottom: 0; }
+  .sev { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+  .sev-p0 { color: var(--p0); background: var(--p0bg); }
+  .sev-p1 { color: var(--p1); background: var(--p1bg); }
+  .sev-p2 { color: var(--p2); background: var(--p2bg); }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; }
+  code { background: var(--soft); padding: 1px 5px; border-radius: 4px; }
+  pre { background: var(--soft); padding: 12px; border-radius: 8px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 700px) { .two { grid-template-columns: 1fr; } }
+  .box { border: 1px solid var(--line); border-radius: 8px; padding: 4px 16px; }
+  details { border: 1px solid var(--line); border-radius: 8px; margin-bottom: 8px; }
+  details > summary { cursor: pointer; padding: 10px 14px; font-weight: 600; list-style: none; }
+  details > summary::before { content: "▸ "; color: var(--muted); }
+  details[open] > summary::before { content: "▾ "; }
+  details > div { padding: 0 16px 12px; border-top: 1px solid var(--line); }
+  .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c); margin-right: 6px; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+
+  .sev { display:inline-block; }
+  .verdict p:first-child { margin-top: 0; }
+  .box ul, .verdict ul { padding-left: 20px; }
+  h3 { font-size: 15px; margin: 18px 0 6px; }

@@ -1,0 +1,74 @@
+{
+  "skill_name": "code-council",
+  "evals": [
+    {
+      "id": 1,
+      "eval_name": "review-and-fix-shop-app",
+      "prompt": "code council this repo and fix what you find. it's my little shop app, I'm on main with nothing uncommitted",
+      "expected_output": "Full council review of the shopkeeper repo. Verdict catches the planted SQL injection (db.py find_product), bare except + unclosed file (config.py), mutable default arg (cart.py), oversized process_order, and the bulk-discount off-by-one (> 10 vs '10 or more'). Report + transcript in .council/<ts>/. Fixes committed on a council/review-* branch in a separate worktree; main untouched; tests still pass; changed code meets size limits.",
+      "files": [
+        "fixtures/shopkeeper"
+      ],
+      "assertions": [
+        "HTML report exists in .council/<ts>/",
+        "Transcript file exists",
+        "All 5 advisors contributed (named in outputs)",
+        "Verdict names a single first step",
+        "Original branch main still at its starting commit",
+        "User's checkout still on main with no modified tracked files",
+        ".council/ outputs never committed to git",
+        "Verdict catches: SQL injection in find_product",
+        "Verdict catches: bare except / swallowed error in load_config",
+        "Verdict catches: mutable default argument in add_item",
+        "Verdict catches: bulk-discount off-by-one (> 10 vs 10 or more)",
+        "Verdict catches: oversized process_order flagged for splitting",
+        "Fixes committed on a council/* branch in a separate worktree",
+        "Tests pass on the council branch",
+        "Changed Python files meet size limits (lizard 30 lines / CCN 10 / 4 params)",
+        "SQL injection actually fixed on council branch (no f-string query)"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "quick-solve-csv-export",
+      "prompt": "quick council: I need to add a CSV export of all orders (customer, total, status) to this app so my accountant can open it in excel. how should I do it? don't write code yet",
+      "expected_output": "Quick-mode council (3 advisors, no peer round) proposing approaches for CSV export, chairman/verdict choosing one design with structure, interfaces, tests and implementation steps. Report in .council/<ts>/. No code changes, no council branch, main untouched.",
+      "files": [
+        "fixtures/shopkeeper"
+      ],
+      "assertions": [
+        "HTML report exists in .council/<ts>/",
+        "Transcript file exists",
+        "All 3 advisors contributed (named in outputs)",
+        "Verdict names a single first step",
+        "Original branch main still at its starting commit",
+        "User's checkout still on main with no modified tracked files",
+        ".council/ outputs never committed to git",
+        "Verdict contains a chosen design",
+        "Verdict contains an implementation plan with steps",
+        "Design mentions tests for the export",
+        "Quick mode: no 5-reviewer peer round",
+        "No council branch created (design only, no approval to implement)"
+      ]
+    },
+    {
+      "id": 3,
+      "eval_name": "build-spendsort-cli",
+      "prompt": "council a new project for me: a small python CLI that reads my bank's CSV exports (columns: date, description, amount) and sorts spending into categories using keyword rules from a YAML file, then prints monthly totals per category. Just for me, runs locally on my laptop. v1 = categorize + monthly summary. Put it in ./spendsort and go ahead and build the first version.",
+      "expected_output": "Build-mode council with 5 competing architectures, chosen design with directory tree and first vertical slice. Project at ./spendsort with an empty main and the scaffold + first slice on a council/build-* branch worktree; pyproject, README, tests that pass; functions within size limits.",
+      "files": [],
+      "assertions": [
+        "HTML report exists in .council/<ts>/",
+        "Transcript file exists",
+        "All 5 advisors contributed (named in outputs)",
+        "Verdict names a single first step",
+        "Verdict has a directory tree",
+        "Verdict defines a first vertical slice",
+        "main stays empty; work lives on a council/build-* branch",
+        "Scaffold has pyproject.toml and README",
+        "Tests pass on the build branch",
+        "All Python functions meet size limits"
+      ]
+    }
+  ]
+}
